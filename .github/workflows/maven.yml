@@ -6,8 +6,10 @@ on:
 
 jobs:
   build-and-test:
-
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        jdk_version: ['11', '17']
+        machine: ['macos-latest', 'ubuntu-latest', 'windows-latest']
 
     steps:
     - uses: actions/checkout@v3
